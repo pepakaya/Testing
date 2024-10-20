@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'quay.io/centos/centos:stream8' // Use a Red Hat Universal Base Image
+            image 'centos:7' // Use a Red Hat Universal Base Image
             args '-u root -v /var/run/docker.sock:/var/run/docker.sock' // Optional: Mount Docker socket if needed
         }
     }
