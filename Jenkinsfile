@@ -8,7 +8,9 @@ pipeline {
 
     environment {
         RPM_BUILD_ROOT = "/build/rpmbuild" // Define RPM build root within the container
-        SPEC_FILE = "Nokia-VM-HealthMonitoring.spec" // Name of the spec file
+        NAME = "Nokia-VM-HealthMonitoring" // Package name
+        VERSION = "2.0" // Package version
+        SPEC_FILE = "${NAME}.spec" // Spec file name
     }
 
     stages {
@@ -25,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Create a tarball of the source code for the RPM
-                    sh "tar -czf ${RPM_BUILD_ROOT}/SOURCES/${SPEC_FILE}.tar.gz -C Nokia-VM-HealthMonitoring ."
+                    sh "tar -czf ${RPM_BUILD_ROOT}/SOURCES/${NAME}-${VERSION}.tar.gz -C Nokia-VM-HealthMonitoring ."
                 }
             }
         }
