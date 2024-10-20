@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'centos:7' // Use a Red Hat Universal Base Image
+            image 'registry.access.redhat.com/ubi8/ubi:latest' // Use a Red Hat Universal Base Image
             args '-u root -v /var/run/docker.sock:/var/run/docker.sock' // Optional: Mount Docker socket if needed
         }
     }
